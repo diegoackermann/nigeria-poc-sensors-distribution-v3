@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nigeria POC Sensors Distribution — Updated</title>
+  <meta name="description" content="Client-ready fullscreen map showing the updated Nigeria POC sensor distribution for Lagos: 15 recommended AllUnite sensors and modelled screen locations." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="" />
+
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2301696F'/><circle cx='16' cy='16' r='5' fill='%23F7F6F2'/></svg>" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="presentation">
+    <section class="map-stage" aria-label="Nigeria POC sensors distribution presentation map">
+      <div id="map" role="region" aria-label="Map of Lagos sensor sites"></div>
+
+      <header class="topbar">
+        <div class="brand">
+          <svg class="logo" viewBox="0 0 32 32" aria-label="Coverage map logo" width="28" height="28">
+            <rect width="32" height="32" rx="8" fill="currentColor"/>
+            <circle cx="16" cy="16" r="9" fill="none" stroke="#F7F6F2" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <circle cx="16" cy="16" r="3.5" fill="#F7F6F2"/>
+          </svg>
+          <div class="brand-text">
+            <span class="kicker">Nigeria POC · Lagos sensor distribution</span>
+            <h1>Recommended Lagos POC sensor distribution</h1>
+          </div>
+        </div>
+
+        <div class="kpis" role="group" aria-label="Coverage KPIs">
+          <div class="kpi">
+            <span class="kpi-label">Submitted screen locations assessed</span>
+            <span class="kpi-value">30</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-label">New AllUnite sensors recommended</span>
+            <span class="kpi-value" style="color:var(--c-new)">15</span>
+          </div>
+          <div class="kpi kpi-emph">
+            <span class="kpi-label">POC screen locations included</span>
+            <span class="kpi-value">30</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-label">Modelled screen locations</span>
+            <span class="kpi-value">15</span>
+          </div>
+        </div>
+      </header>
+
+      <aside class="panel legend" aria-label="Legend">
+        <div class="panel-title">Legend</div>
+        <ul>
+          <li class="legend-group">Submitted screen location outcomes</li>
+          <li><span class="swatch dot" style="background:var(--c-new)"></span>New AllUnite sensor <span class="count">15</span></li>
+          <li class="modelled-master"><span class="swatch ring modelled-simple"></span>Modelled screen locations <span class="count">15</span></li>
+          <li class="subitem"><span class="swatch ring" style="border-color:var(--c-covered)"></span>Represented by nearby sensor <span class="count">7</span></li>
+          <li class="subitem"><span class="swatch ring" style="border-color:var(--c-nosensor)"></span>No separate sensor required <span class="count">5</span></li>
+          <li class="subitem"><span class="swatch ring" style="border-color:var(--c-outlier)"></span>Non-electrified modelled case <span class="count">3</span></li>
+          <li class="rule"></li>
+          <li><span class="swatch line"></span>2&nbsp;km coverage radius (dashed)</li>
+          <li><span class="swatch link"></span>Coverage assignment line</li>
+        </ul>
+      </aside>
+
+      <aside class="panel result-card" aria-label="Coverage result summary">
+        <div class="panel-title">Coverage result</div>
+        <p><strong>All 30 submitted screen locations are included in the POC model.</strong> AllUnite recommends 15 new sensor installations, supported by modelling for the screen locations where a separate installation is not required or where extended modelling is the appropriate approach. This delivers a representative POC network while keeping deployment focused and efficient.</p>
+        <div class="result-grid" aria-label="Executive summary">
+          <span><b>15</b> new AllUnite sensors</span>
+          <span><b>15</b> modelled screen locations</span>
+          <span><b>3</b> non-electrified modelled cases</span>
+        </div>
+      </aside>
+
+      <aside class="panel info" id="info" aria-live="polite">
+        <div class="panel-title">Site details</div>
+        <div class="info-body" id="info-body">
+          <p class="info-hint">Click any marker to inspect coverage, address, and the nearest assigned sensor.</p>
+        </div>
+      </aside>
+
+      <footer class="footnote">
+        <span>Tiles © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> · data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
+        <span>Coverage radius: 2&nbsp;km · Map projection: Web Mercator</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
